@@ -5,8 +5,8 @@ import warnings
 class Token:
     def __init__(self, name, index):
         self.name = name
-        self.index = index
-        self.count = 1
+        self.index = index #有点类似字典的索引
+        self.count = 1 #此种token的个数
     def __str__(self):
         return self.name
 
@@ -71,7 +71,7 @@ class Function:
         self.blocks = blocks
         self.meta = meta
     @classmethod
-    def load(cls, text):
+    def load(cls, text): 
         '''
         gcc -S format compatiable
         '''
@@ -113,7 +113,7 @@ class Function:
         return [token for inst in self.insts for token in inst.tokens()]
     def random_walk(self, num=3):
         return [self._random_walk() for _ in range(num)]
-    def _random_walk(self):
+    def _random_walk(self):#从第一个block出发，随机选择分支进行游走得到一条执行路径上的所有instruction
         current, visited, seq = self.blocks[0], [], []
         while current not in visited:
             visited.append(current)

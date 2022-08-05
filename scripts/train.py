@@ -1,6 +1,12 @@
 import torch
 import click
+
+import sys
+sys.path.append("/mnt/gold/guiyi/project/asm2vec-pytorch/")
+
 import asm2vec
+
+
 
 @click.command()
 @click.option('-i', '--input', 'ipath', help='training data folder', required=True)

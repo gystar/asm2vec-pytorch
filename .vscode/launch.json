@@ -1,0 +1,35 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "cwd": "${fileDirname}",
+      "args": [
+        /*test.py
+        "-i",
+        "/mnt/gold/guiyi/project/asm2vec-pytorch/data/asm/all/8d1cdbadff4d20d108e4aef6b1a306658abdfd7b673960de3eab6138b15fc279",
+        "-m",
+        "/mnt/gold/guiyi/project/asm2vec-pytorch/checkpoints/simple.pt",
+        */
+        ///*train.py        
+        "-i",
+        "/mnt/gold/guiyi/project/asm2vec-pytorch/data/asm/simple",
+        "-l",
+        "100",
+        "-o",
+        "/mnt/gold/guiyi/project/asm2vec-pytorch/checkpoints/simple.pt",
+        "--epochs",
+        "100",
+        //*/
+      ],
+      "justMyCode": true,
+    }
+  ]
+}

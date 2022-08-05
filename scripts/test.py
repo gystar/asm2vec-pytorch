@@ -1,6 +1,9 @@
 import torch
 import torch.nn as nn
 import click
+
+import sys
+sys.path.append("/mnt/gold/guiyi/project/asm2vec-pytorch/")
 import asm2vec
 
 @click.command()

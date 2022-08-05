@@ -162,4 +162,7 @@ tags
 # Persistent undo
 [._]*.un~
 
+data
+checkpoints
+
 # End of https://www.toptal.com/developers/gitignore/api/vim,python

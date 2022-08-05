@@ -31,17 +31,17 @@ def load_data(paths, limit=None):
         if limit and i >= limit:
             break
         with open(filename) as f:
-            fn = Function.load(f.read())
+            fn = Function.load(f.read()) #一个asm文件只看作一个函数？
             functions.append(fn)
             tokens.add(fn.tokens())
     
-    return functions, tokens
+    return functions, tokens #functions为所有asm文件中的所有函数对象集合，tokens为字典同时包含每种token的数量
 
 def preprocess(functions, tokens):
     x, y = [], []
     for i, fn in enumerate(functions):
         for seq in fn.random_walk():
-            for j in range(1, len(seq) - 1):
+            for j in range(1, len(seq) - 1):#假设连续3个连续执行的instructions为A,B,C，则x为A和C的one-hot编码，y为B的one-hot编码；其中也包含了对应的原始fn的index
                 x.append([i] + [tokens[token].index for token in seq[j-1].tokens() + seq[j+1].tokens()])
                 y.append([tokens[token].index for token in seq[j].tokens()])
     return torch.tensor(x), torch.tensor(y)
